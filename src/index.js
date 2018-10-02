@@ -10,9 +10,11 @@ class SmartCalculator {
     let value = this.values[0].toString();
     for (let i = 0; i < this.methods.length; i++) {
       value += this.methods[i] + this.values[i + 1].toString();
+      if (typeof this.values[i + 1] !== 'number') return undefined;
     }
     this.answer = eval(value);
   }
+
 
   add(number) {
     this.methods.push('+');
